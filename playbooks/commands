@@ -1,0 +1,138 @@
+ 1  ssh-keygen
+    2  ssh-copy-id ansible@10.0.0.249
+    3  ssh 10.0.0.249
+    4  ifconfig
+    5  clear
+    6  ssh localhost
+    7  clear
+    8  ssh-copy-id localhost
+    9  ssh localhost
+   10  clear
+   11  ls
+   12  vim hosta
+   13  mv hosta hosts
+   14  sudo mv  hosta hosts
+   15  ls
+   16  vim hosts
+   17  clear
+   18  ifconfig
+   19  clear
+   20  cat /etc/ansible/hosts
+   21  ansible all -m ping
+   22  clear
+   23  ansible all -m ping
+   24  clear
+   25  ansible all -a "ls -al /home/ansible
+"
+   26  ls
+   27  clear
+   28  ssh-keygen
+   29  visudo
+   30  cd /root
+   31  clear
+   32  cd /
+   33  cd /root
+   34  ls
+   35  cd root
+   36  clear
+   37  cd /etc/ansible/
+   38  clear
+   39  ssh-keygen
+   40  ifconfig
+   41  clear
+   42  ssh-copy-id ansible@10.0.0.249
+   43  ssh 10.0.0.249
+   44  ifconfig
+   45  clear
+   46  ssh-copy-id localhost
+   47  clear
+   48  ssh localhost
+   49  clear
+   50  ifconfig
+   51  clear
+   52  cat /etc/ansible/hosts
+   53  ifconfig
+   54  clear
+   55  ansible all -m ping
+   56  clear
+   57  ansible all -m ping
+   58  clear
+   59  ansible all -a "ls -al /home/ansible"
+   60  ansible all -a "cat /var/log/messages"
+   61  sudo ansible all -a "cat /var/log/messages"
+   62  clear
+   63  ansible all -s -a "cat /var/log/messages"
+   64  ansible local -s -a "cat /var/log/messages"
+   65  clear
+   66  cd ~
+   67  mkdir ansible
+   68  cd ansible/
+   69  ll
+   70  vim test.txt
+   71  ll
+   72  ifconfig
+   73  clear
+   74  ll
+   75  ansible 10.0.0.249 -m copy -a "src=test.txt"
+   76  ansible local -m copy -a "src=test.txt"
+   77  clear
+   78  ansible 10.0.0.249 -m copy -a "src=test.txt dest=/tmp/test.txt"
+   79  clear
+   80  ifconfig
+   81  clear
+   82  ansible 10.0.0.249 -s -m user -a "name=test"
+   83  ansible 10.0.0.249 -s -m user -a "name=test state=absent"
+   84  clear
+   85  ifconfig
+   86  clear
+   87  history
+   88  clear
+   89  pwd
+   90  mkdir playbooks
+   91  cd playbooks/
+   92  ll
+   93  vim structure.yaml
+   94  ansible-playbook structure.yaml
+   95  clear
+   96  ansible-playbook structure.yaml
+   97  clear
+   98  ls
+   99  vim structure.yaml
+  100  ansible-playbook structure.yaml
+  101  ansible 10.0.0.249 -m setup
+  102  clear
+  103  ansible-playbook structure.yaml
+  104  clear
+  105  ansible 10.0.0.249 -m setup
+  106  ansible 10.0.0.249 -m setup | grep ipv4
+  107  ansible 10.0.0.249 -m setup -a 'filter=*ipv4*'
+  108  clear
+  109  ansible 10.0.0.249 -m setup --tree facts
+  110  ll
+  111  cd facts/
+  112  ll
+  113  vim 10.0.0.249
+  114  ansible centos -m setup -a 'filter=ansible_domain'
+  115  ansible 10.0.0.249 -m setup -a 'filter=ansible_domain'
+  116  clear
+  117  cd ..
+  118  clear
+  119  cat /etc/ansible/hosts
+  120  vim vartest.yaml
+  121  ansible-playbook vartest.yaml
+  122  vim debug.yaml
+  123  ansible-playbook -s debug.yaml
+  124  ansible-playbook debug.yaml
+  125  clear
+  126  ansible-playbook debug.yaml
+  127  clear
+  128  ansible-playbook debug.yaml
+  129  vim notify.yaml
+  130  clear
+  131  ls
+  132  clear
+  133  vim notify.yaml
+  134  ansible 10.0.0.249 -s -m yum -a "name=nginx state=absent"
+  135  clear
+  136  history
+
