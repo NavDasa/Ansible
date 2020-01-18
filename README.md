@@ -58,3 +58,6 @@ See below video for reference:https://www.youtube.com/watch?v=Km3BCQnV6sw
 Please fallow below link for reference:
 
 https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-docker-on-ubuntu-18-04
+
+
+To work ssh-keygen in the ansadmin--> useradd -m ansadmin
