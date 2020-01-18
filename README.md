@@ -11,11 +11,11 @@ Ansible-playbooks
 
               User:
                 Name: bob
-                Job: 	engineer
+                Job: engineer
                 Salary: 10000
 
               Include newlines: |
-	                Type some text
+	          Type some text
                   Even more text
                   The last of the text
 
