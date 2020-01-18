@@ -49,3 +49,5 @@ On slave:
     sudo apt-get update
     sudo apt-get install python
     
+
+See below video for reference:https://www.youtube.com/watch?v=Km3BCQnV6sw
