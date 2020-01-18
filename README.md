@@ -15,7 +15,7 @@ Ansible-playbooks
                 Salary: 10000
 
               Include newlines: |
-	          Type some text
+		  Type some text
                   Even more text
                   The last of the text
 
