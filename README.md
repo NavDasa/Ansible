@@ -61,3 +61,64 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-a
 
 
 To work ssh-keygen in the ansadmin--> useradd -m ansadmin
+
+
+# Playbook to deploy Docker.
+
+- hosts: web-servers
+  become: true
+  tasks:
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+        - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+#    - name: Install Docker Module for Python
+#      pip:
+#      name: docker
+
+#    - name: Adding ansadmin to Dockeradmin
+#      command: usermod -aG docker ansadmin
+
+#    - name: Make opt directory
+#      command: rmdir /opt/docker && mkdir /opt/docker && cd /opt/docker
+
+#    - name: Build docker image with tomcat webapp
+#      docker_image:
+#        name: Costumized_tomcat
+#        build:
+#          path: /opt/playbooks/Dockerfile
+#          args:
+#            listen_port: 8080
+#        source: build
+#    - name: Run tomcat container
+#      docker:
+#        name: Mytomcat
+#        image: ansadmin/Costumized_tomcat
+#        ports:
+#        - "8080:8080"
+#        state: started
+
+#- hosts: web-servers
+#  become: true
+#  tasks:
+    - name: copy jar/war onto tomcat servers
+      copy:
+        src: /opt/playbooks/webapp/target/webapp.war
+        dest: /opt/apache-tomcat-8.5.50/webapps
+
+
